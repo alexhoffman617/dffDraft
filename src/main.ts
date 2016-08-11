@@ -3,6 +3,8 @@ import { enableProdMode } from '@angular/core';
 import { AppComponent, environment } from './app/';
 import { FIREBASE_PROVIDERS, defaultFirebase } from 'angularfire2';
 
+import { AppRoutes } from './app/app.routing';
+
 if (environment.production) {
   enableProdMode();
 }
@@ -15,5 +17,6 @@ bootstrap(AppComponent, [
     authDomain: "dynasty-contract-ff.firebaseapp.com",
     databaseURL: "https://dynasty-contract-ff.firebaseio.com",
     storageBucket: "dynasty-contract-ff.appspot.com"
-  })
+  }),
+  AppRoutes
 ]);
