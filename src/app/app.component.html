@@ -1,0 +1,10 @@
+<ul>
+  HI MOM
+  <input  [(ngModel)]="name">
+  <input  [(ngModel)]="message">
+  <button (click)="clicked()">Submit</button>
+  <li class="chats" *ngFor="let chat of chats | async">
+    <span><{{chat.name}}></span>
+    {{chat.message}}
+  </li>
+</ul>
