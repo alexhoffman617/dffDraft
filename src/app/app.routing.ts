@@ -1,6 +1,9 @@
 import { provideRouter, RouterConfig } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { PlayerTableComponent } from './playerTable/playerTable.component';
+import { PlayerComponent } from './player/player.component';
+import { UserComponent } from './user/user.component';
+
 
 const appRoutes: RouterConfig = [
   {
@@ -14,6 +17,14 @@ const appRoutes: RouterConfig = [
   {
     path: 'players',
     component: PlayerTableComponent
+  },
+  {
+    path: 'player',
+    component: PlayerComponent
+  },
+  {
+    path: 'user',
+    component: UserComponent
   }
 ];
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  template: 'Login',
+  templateUrl: './app/login/login.component.html',
 })
 export class LoginComponent  {
 }

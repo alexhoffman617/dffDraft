@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  template: 'Player Table',
+  templateUrl: './app/playerTable/playerTable.component.html',
 })
 export class PlayerTableComponent  {
 
