@@ -1,23 +1,22 @@
 <md-toolbar color="primary">
-    <button md-icon-button (click)="start.toggle()">
-        Click
-    </button>
   <h1>Toolbar</h1>
 </md-toolbar>
 
-        <div>
-          <md-input placeholder="Name" [(ngModel)]="name"></md-input>
-          <md-input placeholder="Message" [(ngModel)]="message"></md-input>
-          <button  (click)="clicked()">Submit</button>
-          <ul>  
-            <li class="chats" *ngFor="let chat of chats | async">
-              <span><{{chat.name}}></span>
-              {{chat.message}}
-            </li>
-          </ul>
-        </div>
+<div layout="row">
+  <div flex="30">
+    <md-input placeholder="Name" [(ngModel)]="name"></md-input>
+    <md-input placeholder="Message" [(ngModel)]="message"></md-input>
+    <button  (click)="clicked()">Submit</button>
+    <ul>  
+      <li class="chats" *ngFor="let chat of chats | async">
+        <span><{{chat.name}}></span>
+        {{chat.message}}
+      </li>
+    </ul>
+  </div>
 
 
-    <div>
-      <router-outlet></router-outlet>
-    </div>
+  <div flex="70">
+        <router-outlet></router-outlet>
+  </div>
+</div>

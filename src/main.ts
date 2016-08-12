@@ -3,6 +3,11 @@ import { enableProdMode } from '@angular/core';
 import { AppComponent, environment } from './app/';
 import { FIREBASE_PROVIDERS, defaultFirebase } from 'angularfire2';
 
+import {PLATFORM_DIRECTIVES,provide} from '@angular/core';
+import {FlexDirective}  from './app/flex.directive';
+import {LayoutDirective}  from './app/layout.directive'
+
+
 import { AppRoutes } from './app/app.routing';
 
 if (environment.production) {
@@ -11,6 +16,8 @@ if (environment.production) {
 
 bootstrap(AppComponent, [
   FIREBASE_PROVIDERS,
+    provide(PLATFORM_DIRECTIVES, { useValue: FlexDirective, multi: true}),
+    provide(PLATFORM_DIRECTIVES, { useValue: LayoutDirective, multi: true}),
   // Initialize Firebase app  
   defaultFirebase({
     apiKey: "AIzaSyCWZiCSTN8Z0gI9KMGxgX3L_DTN5K1sjyQ",
