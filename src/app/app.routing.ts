@@ -8,7 +8,8 @@ import { UserComponent } from './user/user.component';
 const appRoutes: RouterConfig = [
   {
     path: '',
-    redirectTo: 'login'
+    redirectTo: 'login',
+    pathMatch: 'full'
   },
   {
     path: 'login',
