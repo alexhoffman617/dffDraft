@@ -25,7 +25,7 @@ const appRoutes: RouterConfig = [
     component: PlayerTableComponent
   },
   {
-    path: 'player',
+    path: 'player/:playerHash',
     component: PlayerComponent
   },
   {

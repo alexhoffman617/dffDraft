@@ -6,7 +6,11 @@ import { MdToolbar } from '@angular2-material/toolbar/toolbar';
 import { MdInput } from '@angular2-material/input/input';
 import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav/sidenav';
 
-
+interface IChat {
+    name: string;
+    message: string;
+    timestamp: number;
+ }
 
 
 
@@ -30,9 +34,7 @@ export class AppComponent {
   title: 'app works!';
   name: "";
   message: "";
-  clicked(){    
-    this.chatsPush.push({name: this.name, message: this.message});
-  }
+  clicked(){};
   constructor(af: AngularFire) {
     this.items = af.database.list('items');
 
@@ -47,5 +49,9 @@ export class AppComponent {
     this.name = ""
     this.message = ""
 
+
+    this.clicked = function(){
+    this.chatsPush.push({name: this.name, message: this.message});
+    }
   }
 }

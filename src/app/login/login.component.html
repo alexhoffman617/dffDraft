@@ -1,1 +1,6 @@
-Login
+<div layout="column">
+    <div flex> Current User: {{ currentUsername }}</div>
+    <md-input placeholder="Username" [(ngModel)]="username"></md-input>
+    <md-input placeholder="Password" [(ngModel)]="password"></md-input>
+    <button  (click)="clicked()">Submit</button>
+</div>
