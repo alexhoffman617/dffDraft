@@ -1,6 +1,22 @@
-<div layout="column">
-    <div flex> Current User: {{ currentUsername }}</div>
-    <md-input placeholder="Username" [(ngModel)]="username"></md-input>
-    <md-input placeholder="Password" [(ngModel)]="password"></md-input>
-    <button  (click)="clicked()">Submit</button>
+<div layout="row">
+    <div flex="20"></div>
+    <div flex>
+        <div *ngIf="!loginService.user || !loginService.user.username" layout="column">
+            <div flex="10"></div>
+            <div>
+                <md-input placeholder="Username" [(ngModel)]="username"></md-input>
+                <md-input placeholder="Password" [(ngModel)]="password"></md-input>
+                <button  (click)="login()">Submit</button>
+            </div>
+            <div flex></div>
+        </div>
+
+        <div *ngIf="loginService.user && loginService.user.username" layout="row">
+            <div flex></div>
+            <span flex>Logged In</span>
+            <button flex (click)="logout()">Log Out</button>
+            <div flex></div>
+        </div>
+    </div>
+    <div flex></div>
 </div>

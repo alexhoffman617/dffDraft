@@ -1,10 +1,11 @@
-<md-toolbar color="primary">
+<md-toolbar color="primary" >
   <h1>Toolbar</h1>
+  <span flex></span>
+  <span> {{ loginService.user ? loginService.user.username : "" }} </span>
 </md-toolbar>
 
 <div layout="row">
-  <div flex="30">
-    <md-input placeholder="Name" [(ngModel)]="name"></md-input>
+  <div flex="30" style="border-right: 1px solid; border-bottom: 1px solid">
     <md-input placeholder="Message" [(ngModel)]="message"></md-input>
     <button  (click)="clicked()">Submit</button>
     <ul>  

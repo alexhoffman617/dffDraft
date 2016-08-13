@@ -5,6 +5,8 @@ import { FORM_DIRECTIVES } from '@angular/forms';
 import { MdToolbar } from '@angular2-material/toolbar/toolbar';
 import { MdInput } from '@angular2-material/input/input';
 import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav/sidenav';
+import { LoginService } from './services/login.service';
+
 
 interface IChat {
     name: string;
@@ -23,7 +25,8 @@ interface IChat {
   FORM_DIRECTIVES,
   MdToolbar,
   MdInput,
-  MD_SIDENAV_DIRECTIVES]
+  MD_SIDENAV_DIRECTIVES],
+  providers: [LoginService]
 })
 
 
@@ -34,8 +37,10 @@ export class AppComponent {
   title: 'app works!';
   name: "";
   message: "";
+  loginService: {}
   clicked(){};
-  constructor(af: AngularFire) {
+  constructor(af: AngularFire, loginService: LoginService) {
+    this.loginService = loginService;
     this.items = af.database.list('items');
 
     this.chatsPush = af.database.list('chat')
@@ -51,7 +56,9 @@ export class AppComponent {
 
 
     this.clicked = function(){
-    this.chatsPush.push({name: this.name, message: this.message});
+      if(this.loginService.user && this.loginService.user.username != ""){
+              this.chatsPush.push({name: this.loginService.user.username, message: this.message});
+      }
     }
   }
 }
