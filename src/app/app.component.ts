@@ -1,6 +1,6 @@
 import { Component, Directive, Input, HostBinding } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
-import { ROUTER_DIRECTIVES } from '@angular/router';
+import { ROUTER_DIRECTIVES, RouterLink, RouterLinkActive } from '@angular/router';
 import { FORM_DIRECTIVES } from '@angular/forms';
 import { MdToolbar } from '@angular2-material/toolbar/toolbar';
 import { MdInput } from '@angular2-material/input/input';
@@ -22,6 +22,8 @@ interface IChat {
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
   directives: [ROUTER_DIRECTIVES,
+  RouterLink,
+  RouterLinkActive,
   FORM_DIRECTIVES,
   MdToolbar,
   MdInput,
