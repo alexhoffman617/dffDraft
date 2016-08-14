@@ -1,8 +1,11 @@
 <md-toolbar color="primary" >
   <h1>Toolbar</h1>
   <span flex></span>
-  <button routerLink="/players"  routerLinkActive="active">Players</button>
-  <span> {{ loginService.user ? loginService.user.username : "" }} </span>
+  <button routerLink="/players">Players</button>
+  <button routerLink="/user">User</button>
+  <button routerLink="/login">{{ loginService.user ? loginService.user.username : "Login" }}</button>
+
+  <span>  </span>
 </md-toolbar>
 
 <div layout="row">

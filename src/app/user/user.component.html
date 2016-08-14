@@ -1,1 +1,8 @@
 User
+
+    <ul>  
+      <li class="userBids" *ngFor="let bid of userBids | async">
+        <span><{{chat.name}}></span>
+        {{chat.message}}
+      </li>
+    </ul>
