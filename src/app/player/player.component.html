@@ -1,1 +1,12 @@
-Player
+<div layout="row">
+  <div flex="30">
+    <center><h1>{{name}} | {{position}} | {{team}}</h1></center>
+    <div ng-controller="calculateValue">
+    <md-input placeholder="Years" [(ngModel)]="years" ng-change="calculateValue()"></md-input>
+    <md-input placeholder="Amount" [(ngModel)]="amount" ng-change="calculateValue()"></md-input>
+    <md-input placeholder="Amount" [(ngModel)]="value"></md-input> {{value}}
+
+    </div>
+    <button (click)="clicked()">Submit</button>
+  </div>
+</div>
