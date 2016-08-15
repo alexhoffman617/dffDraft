@@ -4,8 +4,8 @@
         <div *ngIf="!loginService.user || !loginService.user.username" layout="column">
             <div flex="10"></div>
             <div>
-                <md-input placeholder="Username" [(ngModel)]="username"></md-input>
-                <md-input placeholder="Password" [(ngModel)]="password"></md-input>
+                <input placeholder="Username" [(ngModel)]="username">
+                <input placeholder="Password" [(ngModel)]="password">
                 <button  (click)="login()">Submit</button>
             </div>
             <div flex></div>
