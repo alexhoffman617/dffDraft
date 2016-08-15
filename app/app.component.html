@@ -1,0 +1,28 @@
+<md-toolbar color="primary" >
+  <h1>Toolbar</h1>
+  <span flex></span>
+  <button routerLink="/players">Players</button>
+    <button routerLink="/player/-KP-Hw3Nv3mxNbywMhr-">CAM NEWTON</button>
+  <button routerLink="/user">User</button>
+  <button routerLink="/login">{{ loginService.user ? loginService.user.username : "Login" }}</button>
+
+  <span>  </span>
+</md-toolbar>
+
+<div layout="row">
+  <div flex="30" style="border-right: 1px solid; border-bottom: 1px solid">
+    <md-input placeholder="Message" [(ngModel)]="message"></md-input>
+    <button  (click)="clicked()">Submit</button>
+    <ul>  
+      <li class="chats" *ngFor="let chat of chats | async">
+        <span><{{chat.name}}></span>
+        {{chat.message}}
+      </li>
+    </ul>
+  </div>
+
+
+  <div flex="70">
+        <router-outlet></router-outlet>
+  </div>
+</div>
