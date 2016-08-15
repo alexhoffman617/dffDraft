@@ -1,8 +1,21 @@
-User
 
-    <ul>  
-      <li class="userBids" *ngFor="let bid of userBids | async">
-        <span><{{chat.name}}></span>
-        {{chat.message}}
-      </li>
-    </ul>
+<div class="table-title">
+<table class="table-fill">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Amount</th>
+      <th>Years</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let bid of userBids | async">
+      <tr *ngIf="bid.isWinningBid">
+          <td> {{ getPlayer(bid.player).name }} </td>
+          <td> {{ getPlayer(bid.player).position }}</td>
+          <td> {{bid.amount}} </td>
+          <td> {{bid.years}} </td>
+      </tr>
+  </tbody>
+</table>
+</div>
