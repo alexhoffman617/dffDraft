@@ -1,21 +1,25 @@
-
-<div class="table-title">
-<table class="table-fill">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Position</th>
-      <th>Amount</th>
-      <th>Years</th>
-    </tr>
-  </thead>
-  <tbody *ngFor="let bid of userBids | async">
-      <tr *ngIf="bid.isWinningBid">
-          <td> {{ getPlayer(bid.player).name }} </td>
-          <td> {{ getPlayer(bid.player).position }}</td>
-          <td> {{bid.amount}} </td>
-          <td> {{bid.years}} </td>
+<div layout="column">
+  <div>
+    <span>Salary: {{loginService.totalSalary}}</span>
+  </div>
+  <div flex>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Amount</th>
+        <th>Years</th>
       </tr>
-  </tbody>
-</table>
+    </thead>
+    <tbody *ngFor="let bid of userBids | async">
+        <tr *ngIf="bid.isWinningBid">
+            <td> {{ getPlayer(bid.player).name }} </td>
+            <td> {{ getPlayer(bid.player).position }}</td>
+            <td> {{bid.amount}} </td>
+            <td> {{bid.years}} </td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
 </div>

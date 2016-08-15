@@ -10,17 +10,20 @@ export class UserComponent{
     loginService;
     userBids;
     players;
+    totalSalary: number;
         getPlayer(playerId){
         
     };
     constructor(af: AngularFire, loginService: LoginService){
         this.loginService = loginService;
-
+        this.totalSalary = 0;
         if(this.loginService.user && this.loginService.user.userId){
             var allPlayers = af.database.list('player');
             allPlayers.subscribe(snapshots => {
                  this.players = snapshots;
             });
+            
+            this.totalSalary = this.loginService.calculateTotalSalary();
 
             this.userBids = af.database.list('bids', {
                 query: {
