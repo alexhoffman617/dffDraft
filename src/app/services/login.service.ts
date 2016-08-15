@@ -4,15 +4,20 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 @Injectable()
 export class LoginService  {
 
- user: {
-   username: "",
-   password: "",
-   userId: ""
- }
+ user;
  userhash: ""
   login(username, password){};
   logout(){};
   constructor(af: AngularFire) {  
+    
+    /// For Dev only, remove later
+     this.user = {};
+      this.user.username = "Alex";
+      this.user.password = "password";
+      this.user.userId = "has1";
+    
+
+
     this.login = function(username, password){
       var afUsernames = af.database.list('user', {
         preserveSnapshot: true,
