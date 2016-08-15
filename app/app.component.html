@@ -11,10 +11,8 @@
 
 <div layout="row">
   <div flex="30" style="border-right: 1px solid; border-bottom: 1px solid">
-    <form>
-    <md-input placeholder="Message"  [(ngModel)]="message" name="message"></md-input>
+    <input placeholder="Message"  [(ngModel)]="message">
     <button  (click)="clicked()">Submit</button>
-    </form>
     <ul>  
       <li class="chats" *ngFor="let chat of chats | async">
         <span><{{chat.name}}></span>
