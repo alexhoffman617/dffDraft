@@ -19,11 +19,12 @@ export class PlayerComponent {
     amount: ""
     years: ""
     value: number
-    time: ""
+    time;
 
     clicked() {
         this.value = parseInt(this.years, 10) * parseInt(this.amount, 10) + (4 - parseInt(this.years, 10)) * (parseInt(this.amount, 10) / 2)
-        //this.bids.push({ user: this.user, username: this.username, player: this.playerHash, amount: this.amount, years: this.years, value: this.value, time: this.time, isWinningBid: 1 });
+        this.time = "test"
+        this.bids.push({ user: this.user, username: this.username, player: this.playerHash, amount: this.amount, years: this.years, value: this.value, time: this.time, isWinningBid: 1 });
     }
 
     calculateValue($scope) {
@@ -34,11 +35,12 @@ export class PlayerComponent {
     }
 
     constructor(af: AngularFire, route: ActivatedRoute, loginService: LoginService) {
+        this.bids = af.database.list('bids');
         this.user = loginService.user.userId
         this.username = loginService.user.username
         this.playerHash = route.snapshot.params['playerHash'];
         console.log(this.playerHash)
-        var player = af.database.object('/player/-KP-Hw3Nv3mxNbywMhr-', { preserveSnapshot: true });
+        var player = af.database.object('/player/'+this.playerHash, { preserveSnapshot: true });
         player.subscribe(snapshot => {
             console.log(snapshot.key)
             console.log(snapshot.val())
@@ -46,7 +48,7 @@ export class PlayerComponent {
             this.position = snapshot.val().position
             this.team = snapshot.val().team
         });
-
+    
         console.log(this.playerHash); 
 
         var x = 1;
