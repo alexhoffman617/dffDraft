@@ -32,6 +32,7 @@ const materialPkgs:string[] = [
   'list',
   'card',
   'input',
+  'select'
 ];
 
 materialPkgs.forEach((pkg) => {

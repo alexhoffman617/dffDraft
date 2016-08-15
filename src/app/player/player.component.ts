@@ -4,7 +4,6 @@ import {ActivatedRoute} from '@angular/router';
 import {LoginService} from '../services/login.service'
 
 
-
 @Component({
     templateUrl: './app/player/player.component.html'
 })
@@ -16,22 +15,40 @@ export class PlayerComponent {
     team: ""
     user: ""
     username: ""
-    amount: ""
-    years: ""
+    amount: number
+    years: number
     value: number
     time;
 
     clicked() {
-        this.value = parseInt(this.years, 10) * parseInt(this.amount, 10) + (4 - parseInt(this.years, 10)) * (parseInt(this.amount, 10) / 2)
+        // this.value = parseInt(this.years, 10) * parseInt(this.amount, 10) + (4 - parseInt(this.years, 10)) * (parseInt(this.amount, 10) / 2)
+        this.value = this.years * this.amount + (4 - this.years) * (this.amount / 2)
+
         this.time = "test"
-        this.bids.push({ user: this.user, username: this.username, player: this.playerHash, amount: this.amount, years: this.years, value: this.value, time: this.time, isWinningBid: 1 });
+        var check;
+        this.bids.subscribe(snapshots => {
+            check = snapshots.filter(function (snapshot) {
+                return snapshot.isWinningBid == 1
+            })
+        })
+        if (check.length > 0) {
+            if (check[0].value < this.value) {
+                this.bids.update(check[0].$key, { isWinningBid: 0 })
+                this.bids.push({ user: this.user, username: this.username, player: this.playerHash, amount: this.amount, years: this.years, value: this.value, time: this.time, isWinningBid: 1 });
+            } else {
+                console.log("Bid failed")
+                alert("Bid does not exceed previous bid's value");
+            }
+        } else {
+            this.bids.push({ user: this.user, username: this.username, player: this.playerHash, amount: this.amount, years: this.years, value: this.value, time: this.time, isWinningBid: 1 });
+        }
     }
 
     calculateValue($scope) {
         console.log("test")
         $scope.$watch('years * amount + (4 - years) * (amount / 2)', function (value) {
-        $scope.value = value;
-    });
+            $scope.value = value;
+        });
     }
 
     constructor(af: AngularFire, route: ActivatedRoute, loginService: LoginService) {
@@ -40,7 +57,7 @@ export class PlayerComponent {
         this.username = loginService.user.username
         this.playerHash = route.snapshot.params['playerHash'];
         console.log(this.playerHash)
-        var player = af.database.object('/player/'+this.playerHash, { preserveSnapshot: true });
+        var player = af.database.object('/player/' + this.playerHash, { preserveSnapshot: true });
         player.subscribe(snapshot => {
             console.log(snapshot.key)
             console.log(snapshot.val())
@@ -48,8 +65,8 @@ export class PlayerComponent {
             this.position = snapshot.val().position
             this.team = snapshot.val().team
         });
-    
-        console.log(this.playerHash); 
+
+        console.log(this.playerHash);
 
         var x = 1;
     }

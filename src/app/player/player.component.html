@@ -1,12 +1,56 @@
 <div layout="row">
   <div flex="30">
-    <center><h1>{{name}} | {{position}} | {{team}}</h1></center>
+    <center>
+      <h1>{{name}} | {{position}} | {{team}}</h1>
+    </center>
     <div ng-controller="calculateValue">
-    <md-input placeholder="Years" [(ngModel)]="years" ng-change="calculateValue()"></md-input>
-    <md-input placeholder="Amount" [(ngModel)]="amount" ng-change="calculateValue()"></md-input>
-    <md-input placeholder="Value" [(ngModel)]="value"></md-input> {{value}}
+      <md-input placeholder="Years" [(ngModel)]="years" ng-change="calculateValue()"></md-input>
+      <!--<select ng-model="years">
+        <option value="1">1 year</option>
+        <option value="2">2 years</option>
+        <option value="3">3 years</option>
+        <option value="4">4 years</option>
+        </select>-->
+        
+        <md-input placeholder="Amount" [(ngModel)]="amount" ng-change="calculateValue()"></md-input>
+        
+        Value = ${{years * amount + (4 - years) * (amount / 2)}}
 
     </div>
     <button (click)="clicked()">Submit</button>
+
+
+    <table class="table-fill">
+      <thead>
+        <tr>
+          <th class="text-left">Username</th>
+          <th class="text-left">Time</th>
+          <th class="text-left">Years</th>
+          <th class="text-left">Amount</th>
+          <th class="text-left">Value</th>
+        </tr>
+      </thead>
+      <tbody class="table-hover">
+        <tr *ngFor="let bid of bids | async">
+          <td class="text-left">
+            {{ bid.username }}
+          </td>
+          <td class="text-left">
+            {{ bid.time }}
+          </td>
+          <td class="text-left">
+            {{ bid.years }}
+          </td>
+          <td class="text-left">
+            {{ bid.amount }}
+          </td>
+          <td class="text-left">
+            {{ bid.value }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
   </div>
 </div>
