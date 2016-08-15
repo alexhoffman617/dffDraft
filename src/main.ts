@@ -22,7 +22,6 @@ bootstrap(AppComponent, [
   provide(PLATFORM_DIRECTIVES, { useValue: FlexDirective, multi: true}),
   provide(PLATFORM_DIRECTIVES, { useValue: LayoutDirective, multi: true}),
   LoginService,
-  disableDeprecatedForms(),
   provideForms(),
   // Initialize Firebase app  
   defaultFirebase({
