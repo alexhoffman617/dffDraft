@@ -1,18 +1,21 @@
 <md-toolbar color="primary" >
-  <h1>Toolbar</h1>
+  <h1>Dynasty Fantasy Draft 2016</h1>
   <span flex></span>
-  <button routerLink="/players">Players</button>
-    <button routerLink="/player/-KP-Hw3Nv3mxNbywMhr-">CAM NEWTON</button>
-  <button routerLink="/user">User</button>
-  <button routerLink="/login">{{ loginService.user ? loginService.user.username : "Login" }}</button>
+  <md-button class="md-raised" routerLink="/players">Players</md-button>
+  <span style="width:30px"></span>
+  <md-button routerLink="/player/-KP-Hw3Nv3mxNbywMhr-">CAM NEWTON</md-button>
+  <span style="width:30px"></span>
+  <md-button routerLink="/user">User</md-button>
+  <span style="width:30px"></span>
+  <md-button routerLink="/login">{{ loginService.user ? loginService.user.username : "Login" }}</md-button>
 
-  <span>  </span>
+  <span style="width:30px">  </span>
 </md-toolbar>
 
 <div layout="row">
   <div flex="30" style="border-right: 1px solid; border-bottom: 1px solid">
     <input placeholder="Message"  [(ngModel)]="message">
-    <button  (click)="clicked()">Submit</button>
+    <button  (click)="clicked()" md-raised-button >Submit</button>
     <ul>  
       <li class="chats" *ngFor="let chat of chats | async">
         <span><{{chat.name}}></span>
