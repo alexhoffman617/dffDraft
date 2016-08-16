@@ -2,10 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import {ActivatedRoute} from '@angular/router';
 import {LoginService} from '../services/login.service'
-
+import { FlexDirective }  from '../flex.directive';
+import { LayoutDirective }  from '../layout.directive';
 
 @Component({
-    templateUrl: './app/player/player.component.html'
+    templateUrl: './app/player/player.component.html',
+    directives: [FlexDirective,
+                LayoutDirective]
 })
 export class PlayerComponent {
     bids: FirebaseListObservable<any[]>;

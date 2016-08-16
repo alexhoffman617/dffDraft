@@ -2,12 +2,10 @@ import { Component, Directive, Input, HostBinding } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { ROUTER_DIRECTIVES, RouterLink, RouterLinkActive } from '@angular/router';
 import { FORM_DIRECTIVES } from '@angular/forms';
-import { MdToolbar } from '@angular2-material/toolbar/toolbar';
-import { MdInput } from '@angular2-material/input/input';
-import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav/sidenav';
 import { LoginService } from './services/login.service';
 import { FlexDirective }  from './flex.directive';
 import { LayoutDirective }  from './layout.directive';
+import { MdToolbar } from '@angular2-material/toolbar/toolbar';
 
 interface IChat {
     name: string;
@@ -27,8 +25,6 @@ interface IChat {
   RouterLinkActive,
   FORM_DIRECTIVES,
   MdToolbar,
-  MdInput,
-  MD_SIDENAV_DIRECTIVES,
   FlexDirective,
   LayoutDirective
   ],

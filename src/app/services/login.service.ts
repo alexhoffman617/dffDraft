@@ -8,8 +8,9 @@ export class LoginService  {
  userhash: ""
   login(username, password){};
   logout(){};
-  calculateTotalSalary(){};
+  calculateSalaryInfo(){};
   totalSalary;
+  maxBid;
   constructor(af: AngularFire) {  
     
     /// For Dev only, remove later
@@ -18,7 +19,7 @@ export class LoginService  {
       this.user.password = "password";
       this.user.userId = "has1";
     
-    this.calculateTotalSalary= function(){
+    this.calculateSalaryInfo= function(){
        this.bids = af.database.list('bids', {
          query: {
            orderByChild: 'user',
@@ -33,7 +34,8 @@ export class LoginService  {
             winningBids.forEach(bid => {
               currentSalary += parseInt(bid.amount);
             });  
-            this.totalSalary = currentSalary;        
+            this.totalSalary = currentSalary; 
+            this.maxBid = (240 -currentSalary) - (16 - (winningBids.length + 1));  
         }) 
 
     }

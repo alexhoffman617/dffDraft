@@ -1,0 +1,15 @@
+
+button {
+   color: #fafafa;
+   background-color: #009688;
+   border-width: .25px;
+   cursor: pointer
+}
+
+button:focus {
+  outline: 0
+}
+
+md-button:hover {
+  cursor: pointer
+}
