@@ -17,9 +17,13 @@ export class PlayerTableComponent  {
   players;
   bids;
   positionFilter;
+  usernameFilter;
+  loginService;
   getBid(playerId){};
   constructor(af: AngularFire, loginService: LoginService) {
+    this.loginService = loginService;
     this.positionFilter = 'ALL';
+    this.usernameFilter = 'ALL';
     this.players = af.database.list('player');
     af.database.list('bids', {
       query: {

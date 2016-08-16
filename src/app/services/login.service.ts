@@ -9,10 +9,10 @@ export class LoginService  {
   login(username, password){};
   logout(){};
   calculateSalaryInfo(){};
-  totalSalary;
-  maxBid;
+  allUsers;
   constructor(af: AngularFire) {  
-    
+  this.allUsers = af.database.list('user');
+
     /// For Dev only, remove later
      this.user = {};
       this.user.username = "Alex";
