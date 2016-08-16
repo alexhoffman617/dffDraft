@@ -19,7 +19,7 @@ export class PlayerTableComponent  {
   positionFilter;
   getBid(playerId){};
   constructor(af: AngularFire, loginService: LoginService) {
-    this.positionFilter = 'QB';
+    this.positionFilter = 'ALL';
     this.players = af.database.list('player');
     af.database.list('bids', {
       query: {

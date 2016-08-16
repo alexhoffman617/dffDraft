@@ -8,6 +8,7 @@ import { FIREBASE_PROVIDERS, defaultFirebase } from 'angularfire2';
 import { FlexDirective }  from './flex.directive';
 import { LayoutDirective }  from './layout.directive';
 import { LoginService }  from './services/login.service';
+import { SalaryService }  from './services/salary.service';
 import {disableDeprecatedForms, provideForms} from '@angular/forms';
 
 import { MdButton } from '@angular2-material/button/button';
@@ -20,6 +21,7 @@ import { AppRoutes } from './app.routing';
   declarations: [AppComponent],
   imports: [BrowserModule],
   providers: [LoginService,
+    SalaryService,
     provideForms(),
     disableDeprecatedForms(),
     FIREBASE_PROVIDERS,

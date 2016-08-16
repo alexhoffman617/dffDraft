@@ -1,6 +1,7 @@
 <div layout="row">
   <div flex="100"> 
     <select [(ngModel)]="positionFilter" >
+      <option value="ALL">ALL</option>
       <option value="QB">QB</option>
       <option value="RB">RB</option>
       <option value="WR">WR</option>
@@ -22,7 +23,7 @@
         </tr>
       </thead>
       <tbody *ngFor="let player of players | async">
-        <tr *ngIf="player.position == positionFilter">
+        <tr *ngIf="player.position === positionFilter || positionFilter === 'ALL'">
           <td [routerLink]="[ '/player/' + player.$key ]"> {{ player.name }} </td>
           <td> {{ player.position }}</td>
           <td> {{ player.team }}</td>

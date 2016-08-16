@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { LoginService } from '../services/login.service';
+import { SalaryService } from '../services/salary.service';
 import { FlexDirective }  from '../flex.directive';
 import { LayoutDirective }  from '../layout.directive';
 
@@ -11,13 +12,14 @@ import { LayoutDirective }  from '../layout.directive';
 })
 export class UserComponent {
     loginService;
+    salaryService;
     userBids;
     players;
     totalSalary: number;
     getPlayer(playerId) {
 
     };
-    constructor(af: AngularFire, loginService: LoginService) {
+    constructor(af: AngularFire, loginService: LoginService, salaryService: SalaryService) {
         this.loginService = loginService;
         this.totalSalary = 0;
         if (this.loginService.user && this.loginService.user.userId) {
@@ -26,7 +28,7 @@ export class UserComponent {
                 this.players = snapshots;
             });
 
-            this.loginService.calculateSalaryInfo();
+            this.salaryService.calculateSalaryInfo();
 
             this.userBids = af.database.list('bids', {
                 query: {

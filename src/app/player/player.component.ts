@@ -22,7 +22,7 @@ export class PlayerComponent {
     years: number
     value: number
     time;
-
+    getLocalTimeFromTimestamp(timestamp){}
     clicked() {
         // this.value = parseInt(this.years, 10) * parseInt(this.amount, 10) + (4 - parseInt(this.years, 10)) * (parseInt(this.amount, 10) / 2)
         this.value = this.years * this.amount + (4 - this.years) * (this.amount / 2)
@@ -37,13 +37,13 @@ export class PlayerComponent {
         if (check.length > 0) {
             if (check[0].value < this.value) {
                 this.bids.update(check[0].$key, { isWinningBid: 0 })
-                this.bids.push({ user: this.user, username: this.username, player: this.playerHash, amount: this.amount, years: this.years, value: this.value, time: this.time, isWinningBid: 1 });
+                this.bids.push({ user: this.user, username: this.username, player: this.playerHash, amount: this.amount, years: this.years, value: this.value, time: firebase.database.ServerValue.TIMESTAMP, isWinningBid: 1 });
             } else {
                 console.log("Bid failed")
                 alert("Bid does not exceed previous bid's value");
             }
         } else {
-            this.bids.push({ user: this.user, username: this.username, player: this.playerHash, amount: this.amount, years: this.years, value: this.value, time: this.time, isWinningBid: 1 });
+            this.bids.push({ user: this.user, username: this.username, player: this.playerHash, amount: this.amount, years: this.years, value: this.value, time: firebase.database.ServerValue.TIMESTAMP, isWinningBid: 1 });
         }
     }
 
@@ -69,8 +69,14 @@ export class PlayerComponent {
             this.team = snapshot.val().team
         });
 
-        console.log(this.playerHash);
 
-        var x = 1;
+
+        this.getLocalTimeFromTimestamp = function(timestamp){
+            if(timestamp === 'test'){
+                return timestamp
+            }
+            return new Date(timestamp).toLocaleDateString() + ' ' + new Date(timestamp).toLocaleTimeString()
+
+        }
     }
 }
