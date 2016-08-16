@@ -6,7 +6,8 @@ import { MdToolbar } from '@angular2-material/toolbar/toolbar';
 import { MdInput } from '@angular2-material/input/input';
 import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav/sidenav';
 import { LoginService } from './services/login.service';
-
+import { FlexDirective }  from './flex.directive';
+import { LayoutDirective }  from './layout.directive';
 
 interface IChat {
     name: string;
@@ -27,7 +28,10 @@ interface IChat {
   FORM_DIRECTIVES,
   MdToolbar,
   MdInput,
-  MD_SIDENAV_DIRECTIVES],
+  MD_SIDENAV_DIRECTIVES,
+  FlexDirective,
+  LayoutDirective
+  ],
   providers: [LoginService]
 })
 

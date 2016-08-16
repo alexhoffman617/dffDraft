@@ -17,17 +17,14 @@ import { AppRoutes } from './app.routing';
 
 @NgModule({
     declarations: [AppComponent],
-    imports:      [BrowserModule,
-
-    
-    ],
+    imports:      [BrowserModule],
     providers: [LoginService,
   provideForms(),
 disableDeprecatedForms(),
     FIREBASE_PROVIDERS,
 AppRoutes,
-provide(PLATFORM_DIRECTIVES, { useValue: FlexDirective, multi: true}),
-provide(PLATFORM_DIRECTIVES, { useValue: LayoutDirective, multi: true}),
+{provide: FlexDirective, useValue: FlexDirective},
+{provide: LayoutDirective, useValue: LayoutDirective} ,
   defaultFirebase({
     apiKey: "AIzaSyCWZiCSTN8Z0gI9KMGxgX3L_DTN5K1sjyQ",
     authDomain: "dynasty-contract-ff.firebaseapp.com",
