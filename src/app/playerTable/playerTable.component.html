@@ -1,1 +1,37 @@
-Player Table
+<div layout="row">
+  <div flex="100"> 
+    <select [(ngModel)]="positionFilter" >
+      <option value="QB">QB</option>
+      <option value="RB">RB</option>
+      <option value="WR">WR</option>
+      <option value="TE">TE</option>
+      <option value="D/ST">D/ST</option>
+    </select>
+  </div>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Team</th>
+          <th>Owner</th>
+          <th>Amount</th>
+          <th>Years</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let player of players | async">
+        <tr *ngIf="player.position == positionFilter">
+          <td [routerLink]="[ '/player/' + player.$key ]"> {{ player.name }} </td>
+          <td> {{ player.position }}</td>
+          <td> {{ player.team }}</td>
+          <td> {{ getBid(player.$key).username }} </td>
+          <td> {{ getBid(player.$key).amount }} </td>
+          <td> {{ getBid(player.$key).years }} </td>
+          <td> {{ getBid(player.$key).value }} </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
