@@ -26,6 +26,8 @@
           <th>Position</th>
           <th>Team</th>
           <th>Owner</th>
+          <th>Time Left</th>
+          <th>Bid Time</th>
           <th>Amount</th>
           <th>Years</th>
           <th>Value</th>
@@ -38,6 +40,8 @@
           <td> {{ player.position }}</td>
           <td> {{ player.team }}</td>
           <td> {{ getBid(player.$key).username }} </td>
+          <td> {{ getTimeLeft(getBid(player.$key).time, datetime) }}</td>
+          <td> {{ getTimeFromTimeStamp(getBid(player.$key).time) }}
           <td> {{ getBid(player.$key).amount }} </td>
           <td> {{ getBid(player.$key).years }} </td>
           <td> {{ getBid(player.$key).value }} </td>
