@@ -40,30 +40,19 @@ export class PlayerComponent {
             })
         })
 
-        if (this.timeService.getTimeLeft(currMaxBid.time) == 'Bid Won') {
+        this.salaryService.calculateSalaryInfo(this.user);
+        if (currMaxBid.length > 0 && this.timeService.getTimeLeft(currMaxBid[0].time, this.timeService.datetime) == 'Bid Won') {
             alert("You're too slow bitch, bidding on this player has EXPIRED.");
-        } else {
-            if (this.amount <= 0 || this.years <= 0 || this.years > 4) {
+        } else if (this.amount <= 0 || this.years <= 0 || this.years > 4) {
                 alert("Fuck you, put in a valid value for amount or years");
-            } else {
-                this.salaryService.calculateSalaryInfo(this.user);
-                if (this.amount <= this.salaryService.maxBid) {
-                    if (currMaxBid.length > 0) {
-                        if (currMaxBid[0].value < this.value) {
-                            this.bids.update(currMaxBid[0].$key, { isWinningBid: 0 })
-                            this.bids.push({ user: this.user, username: this.username, player: this.playerHash, amount: this.amount, years: this.years, value: this.value, time: firebase.database.ServerValue.TIMESTAMP, isWinningBid: 1 });
-                        } else {
-                            console.log("Bid failed")
-                            alert("Stop being so fucking cheap, increase your bid value.");
-                        }
-                    } else {
-                        this.bids.push({ user: this.user, username: this.username, player: this.playerHash, amount: this.amount, years: this.years, value: this.value, time: firebase.database.ServerValue.TIMESTAMP, isWinningBid: 1 });
-                    }
-                } else {
-                    alert("Bitch, you're spending too much or you already have a full, shitty-ass team");
-                }
-            }
-        }
+        } else if(this.amount > this.salaryService.maxBid) {
+                alert("Bitch, you're spending too much or you already have a full, shitty-ass team");
+        } else if (currMaxBid.length > 0 && currMaxBid[0].value >= this.value) {
+                alert("Stop being so fucking cheap, increase your bid value.");
+        } else {
+            this.bids.update(currMaxBid[0].$key, { isWinningBid: 0 })
+            this.bids.push({ user: this.user, username: this.username, player: this.playerHash, amount: this.amount, years: this.years, value: this.value, time: firebase.database.ServerValue.TIMESTAMP, isWinningBid: 1 });                         
+        }       
     }
 
     calculateValue($scope) {
