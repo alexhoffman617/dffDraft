@@ -41,7 +41,7 @@
           <td> {{ player.team }}</td>
           <td> {{ getBid(player.$key).username }} </td>
           <td> {{ timeService.getTimeLeft(getBid(player.$key).time, timeService.datetime) }}</td>
-          <td> {{ timeService.getTimeFromTimeStamp(getBid(player.$key).time) }}
+          <td> {{ timeService.getLocalTimeFromTimeStamp(getBid(player.$key).time) }}
           <td> {{ getBid(player.$key).amount }} </td>
           <td> {{ getBid(player.$key).years }} </td>
           <td> {{ getBid(player.$key).value }} </td>

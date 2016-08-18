@@ -27,8 +27,6 @@ export class PlayerComponent {
     salaryService;
     timeService;
     currentBid;
-
-    getLocalTimeFromTimestamp(timestamp) { }
     clicked() {
         // this.value = parseInt(this.years, 10) * parseInt(this.amount, 10) + (4 - parseInt(this.years, 10)) * (parseInt(this.amount, 10) / 2)
         this.value = this.years * this.amount + (4 - this.years) * (this.amount / 2)
@@ -87,14 +85,5 @@ export class PlayerComponent {
             this.team = snapshot.val().team
         });
 
-
-
-        this.getLocalTimeFromTimestamp = function (timestamp) {
-            if (timestamp === 'test') {
-                return timestamp
-            }
-            return new Date(timestamp).toLocaleDateString() + ' ' + new Date(timestamp).toLocaleTimeString()
-
-        }
     }
 }

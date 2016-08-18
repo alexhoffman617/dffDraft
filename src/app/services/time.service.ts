@@ -6,6 +6,7 @@ export class TimeService {
     datetime;
     getTimeLeft(timestamp, inputCurrentDateTime){};
     getTimeFromTimeStamp(timestamp){};
+    getLocalTimeFromTimeStamp(timestamp){};
     formatTimeNumber(input){};
     constructor(af: AngularFire) {
         this.getTimeLeft = function (inputTimeStamp, inputCurrentDateTime) {
@@ -32,6 +33,13 @@ export class TimeService {
 
         this.getTimeFromTimeStamp = function (timestamp) {
             return new Date(timestamp);
+        }
+
+        this.getLocalTimeFromTimeStamp = function (timestamp) {
+            if (timestamp === 'test') {
+                return timestamp
+            }
+            return new Date(timestamp).toLocaleDateString() + ' ' + new Date(timestamp).toLocaleTimeString()
         }
 
         setInterval(() => {
