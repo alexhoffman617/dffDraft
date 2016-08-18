@@ -9,6 +9,7 @@ import { FlexDirective }  from './flex.directive';
 import { LayoutDirective }  from './layout.directive';
 import { LoginService }  from './services/login.service';
 import { SalaryService }  from './services/salary.service';
+import { TimeService }  from './services/time.service';
 import {disableDeprecatedForms, provideForms} from '@angular/forms';
 
 import { MdButton } from '@angular2-material/button/button';
@@ -22,6 +23,7 @@ import { AppRoutes } from './app.routing';
   imports: [BrowserModule],
   providers: [LoginService,
     SalaryService,
+    TimeService,
     provideForms(),
     disableDeprecatedForms(),
     FIREBASE_PROVIDERS,
