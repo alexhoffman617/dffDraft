@@ -13,17 +13,20 @@ export class CreatePlayerComponent  {
   name: "";
   position: "";
   team: "";
+  bye: "";
   clicked(){    
-    this.players.push({name: this.name, position: this.position, team: this.team});
+    this.players.push({name: this.name, position: this.position, team: this.team, bye: this.bye});
     this.name = "";
     this.position = "";
     this.team = "";
+    this.bye ="";
   }
   constructor(af: AngularFire) {
     this.players = af.database.list('player');
     this.name = "";
     this.position = "";
     this.team = "";
+    this.bye = "";
   };
 }
 
