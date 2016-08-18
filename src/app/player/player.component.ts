@@ -39,24 +39,29 @@ export class PlayerComponent {
                 return snapshot.isWinningBid == 1
             })
         })
-        if (this.amount <= 0 || this.years <= 0 || this.years > 4) {
-            alert("Fuck you, put in a valid value for amount or years");
+
+        if (this.timeService.getTimeLeft(currMaxBid.time) == 'Bid Won') {
+            alert("You're too slow bitch, bidding on this player has EXPIRED.");
         } else {
-            this.salaryService.calculateSalaryInfo(this.user);
-            if (this.amount <= this.salaryService.maxBid) {
-                if (currMaxBid.length > 0) {
-                    if (currMaxBid[0].value < this.value) {
-                        this.bids.update(currMaxBid[0].$key, { isWinningBid: 0 })
-                        this.bids.push({ user: this.user, username: this.username, player: this.playerHash, amount: this.amount, years: this.years, value: this.value, time: firebase.database.ServerValue.TIMESTAMP, isWinningBid: 1 });
+            if (this.amount <= 0 || this.years <= 0 || this.years > 4) {
+                alert("Fuck you, put in a valid value for amount or years");
+            } else {
+                this.salaryService.calculateSalaryInfo(this.user);
+                if (this.amount <= this.salaryService.maxBid) {
+                    if (currMaxBid.length > 0) {
+                        if (currMaxBid[0].value < this.value) {
+                            this.bids.update(currMaxBid[0].$key, { isWinningBid: 0 })
+                            this.bids.push({ user: this.user, username: this.username, player: this.playerHash, amount: this.amount, years: this.years, value: this.value, time: firebase.database.ServerValue.TIMESTAMP, isWinningBid: 1 });
+                        } else {
+                            console.log("Bid failed")
+                            alert("Stop being so fucking cheap, increase your bid value.");
+                        }
                     } else {
-                        console.log("Bid failed")
-                        alert("Stop being so fucking cheap, increase your bid value.");
+                        this.bids.push({ user: this.user, username: this.username, player: this.playerHash, amount: this.amount, years: this.years, value: this.value, time: firebase.database.ServerValue.TIMESTAMP, isWinningBid: 1 });
                     }
                 } else {
-                    this.bids.push({ user: this.user, username: this.username, player: this.playerHash, amount: this.amount, years: this.years, value: this.value, time: firebase.database.ServerValue.TIMESTAMP, isWinningBid: 1 });
+                    alert("Bitch, you're spending too much or you already have a full, shitty-ass team");
                 }
-            } else {
-                alert("Bitch, you're spending too much or you already have a full, shitty-ass team");
             }
         }
     }
@@ -70,7 +75,7 @@ export class PlayerComponent {
 
     constructor(af: AngularFire, route: ActivatedRoute, loginService: LoginService, salaryService: SalaryService, timeService: TimeService) {
         this.timeService = timeService;
-                this.playerHash = route.snapshot.params['playerHash'];
+        this.playerHash = route.snapshot.params['playerHash'];
         this.bids = af.database.list('bids', {
             query: {
                 orderByChild: 'player',
@@ -78,11 +83,6 @@ export class PlayerComponent {
             }
         });
 
-        this.bids.subscribe(snapshots => {
-            this.currentBid = snapshots.filter(function (snapshot) {
-                return snapshot.isWinningBid == 1
-            })
-        })
         this.user = loginService.user.userId
         this.username = loginService.user.username
         this.salaryService = salaryService;
