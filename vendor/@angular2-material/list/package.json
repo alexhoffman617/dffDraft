@@ -2,18 +2,18 @@
   "_args": [
     [
       {
-        "raw": "@angular2-material/list",
+        "raw": "@angular2-material/list@^2.0.0-alpha.7-2",
         "scope": "@angular2-material",
         "escapedName": "@angular2-material%2flist",
         "name": "@angular2-material/list",
-        "rawSpec": "",
-        "spec": "latest",
-        "type": "tag"
+        "rawSpec": "^2.0.0-alpha.7-2",
+        "spec": ">=2.0.0-alpha.7-2 <3.0.0",
+        "type": "range"
       },
-      "/Users/alexhoffman/Desktop/JavaScriptProjects/dffDraft"
+      "/Users/abaradwaj/Documents/dffDraft"
     ]
   ],
-  "_from": "@angular2-material/list@latest",
+  "_from": "@angular2-material/list@>=2.0.0-alpha.7-2 <3.0.0",
   "_id": "@angular2-material/list@2.0.0-alpha.7-2",
   "_inCache": true,
   "_installable": true,
@@ -30,23 +30,22 @@
   "_npmVersion": "3.7.5",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "@angular2-material/list",
+    "raw": "@angular2-material/list@^2.0.0-alpha.7-2",
     "scope": "@angular2-material",
     "escapedName": "@angular2-material%2flist",
     "name": "@angular2-material/list",
-    "rawSpec": "",
-    "spec": "latest",
-    "type": "tag"
+    "rawSpec": "^2.0.0-alpha.7-2",
+    "spec": ">=2.0.0-alpha.7-2 <3.0.0",
+    "type": "range"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/@angular2-material/list/-/list-2.0.0-alpha.7-2.tgz",
   "_shasum": "b0e9dfa8caed10ad3cab752bac6fa6949d70ed4c",
   "_shrinkwrap": null,
-  "_spec": "@angular2-material/list",
-  "_where": "/Users/alexhoffman/Desktop/JavaScriptProjects/dffDraft",
+  "_spec": "@angular2-material/list@^2.0.0-alpha.7-2",
+  "_where": "/Users/abaradwaj/Documents/dffDraft",
   "bugs": {
     "url": "https://github.com/angular/material2/issues"
   },

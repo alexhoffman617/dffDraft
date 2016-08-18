@@ -2,18 +2,18 @@
   "_args": [
     [
       {
-        "raw": "@angular2-material/input",
+        "raw": "@angular2-material/input@^2.0.0-alpha.7-2",
         "scope": "@angular2-material",
         "escapedName": "@angular2-material%2finput",
         "name": "@angular2-material/input",
-        "rawSpec": "",
-        "spec": "latest",
-        "type": "tag"
+        "rawSpec": "^2.0.0-alpha.7-2",
+        "spec": ">=2.0.0-alpha.7-2 <3.0.0",
+        "type": "range"
       },
-      "/Users/alexhoffman/Desktop/JavaScriptProjects/dffDraft"
+      "/Users/abaradwaj/Documents/dffDraft"
     ]
   ],
-  "_from": "@angular2-material/input@latest",
+  "_from": "@angular2-material/input@>=2.0.0-alpha.7-2 <3.0.0",
   "_id": "@angular2-material/input@2.0.0-alpha.7-2",
   "_inCache": true,
   "_installable": true,
@@ -30,23 +30,22 @@
   "_npmVersion": "3.7.5",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "@angular2-material/input",
+    "raw": "@angular2-material/input@^2.0.0-alpha.7-2",
     "scope": "@angular2-material",
     "escapedName": "@angular2-material%2finput",
     "name": "@angular2-material/input",
-    "rawSpec": "",
-    "spec": "latest",
-    "type": "tag"
+    "rawSpec": "^2.0.0-alpha.7-2",
+    "spec": ">=2.0.0-alpha.7-2 <3.0.0",
+    "type": "range"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/@angular2-material/input/-/input-2.0.0-alpha.7-2.tgz",
   "_shasum": "074efe771d91892bd905bae67752f467d2456de4",
   "_shrinkwrap": null,
-  "_spec": "@angular2-material/input",
-  "_where": "/Users/alexhoffman/Desktop/JavaScriptProjects/dffDraft",
+  "_spec": "@angular2-material/input@^2.0.0-alpha.7-2",
+  "_where": "/Users/abaradwaj/Documents/dffDraft",
   "bugs": {
     "url": "https://github.com/angular/material2/issues"
   },

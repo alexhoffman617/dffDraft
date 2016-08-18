@@ -11,13 +11,12 @@
         <option value="3">3 years</option>
         <option value="4">4 years</option>
         </select>-->
-        
-        <input placeholder="Amount" [(ngModel)]="amount" ng-change="calculateValue()">
-        
-        Value = ${{years * amount + (4 - years) * (amount / 2)}}
 
+      <input placeholder="Amount" [(ngModel)]="amount" ng-change="calculateValue()"> Value = ${{years * amount + (4 - years)
+      * (amount / 2)}}
+      <button (click)="clicked()">Submit</button>
     </div>
-    <button (click)="clicked()">Submit</button>
+
 
 
     <table class="table-fill">

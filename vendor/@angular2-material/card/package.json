@@ -10,7 +10,7 @@
         "spec": ">=2.0.0-alpha.7-2 <3.0.0",
         "type": "range"
       },
-      "/Users/alexhoffman/Desktop/JavaScriptProjects/dffDraft"
+      "/Users/abaradwaj/Documents/dffDraft"
     ]
   ],
   "_from": "@angular2-material/card@>=2.0.0-alpha.7-2 <3.0.0",
@@ -39,14 +39,13 @@
     "type": "range"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/@angular2-material/card/-/card-2.0.0-alpha.7-2.tgz",
   "_shasum": "6c53c7f0fa8e388fd42192bb83b2b2632fabf4e6",
   "_shrinkwrap": null,
   "_spec": "@angular2-material/card@^2.0.0-alpha.7-2",
-  "_where": "/Users/alexhoffman/Desktop/JavaScriptProjects/dffDraft",
+  "_where": "/Users/abaradwaj/Documents/dffDraft",
   "bugs": {
     "url": "https://github.com/angular/material2/issues"
   },
