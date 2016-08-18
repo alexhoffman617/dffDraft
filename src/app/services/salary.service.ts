@@ -25,7 +25,11 @@ export class SalaryService  {
               currentSalary += parseInt(bid.amount);
             });  
             this.totalSalary = currentSalary; 
-            this.maxBid = (240 -currentSalary) - (16 - (winningBids.length + 1));  
+            if(winningBids.length > 15){
+              this.maxBid = 0;
+            } else{
+              this.maxBid = (240 - currentSalary) - (16 - (winningBids.length + 1));  
+            }
         }) 
     }
   }
