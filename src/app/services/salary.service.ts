@@ -4,18 +4,16 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 @Injectable()
 export class SalaryService  {
 
- user;
- userhash: ""
-  calculateSalaryInfo(){};
+  calculateSalaryInfo(user){};
   totalSalary;
   maxBid;
   constructor(af: AngularFire) {  
 
-    this.calculateSalaryInfo= function(){
+    this.calculateSalaryInfo= function(user){
        this.bids = af.database.list('bids', {
          query: {
            orderByChild: 'user',
-           equalTo: this.user.userId
+           equalTo: user.userId
          }
        });
       var currentSalary = 0;
