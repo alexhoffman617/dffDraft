@@ -3,7 +3,7 @@
     <center>
       <h1>{{name}} | {{position}} | {{team}}</h1>
     </center>
-    <div ng-controller="calculateValue">
+    <div *ngIf="timeService.getTimeLeft(currentBid.time) == 'Bid Won'" ng-controller="calculateValue">
       <input placeholder="Years" [(ngModel)]="years" ng-change="calculateValue()">
       <!--<select ng-model="years">
         <option value="1">1 year</option>
