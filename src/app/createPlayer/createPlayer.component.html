@@ -1,9 +1,25 @@
 <div layout="row">
-  <div flex="30">
+  <div flex>
     <input placeholder="Name" [(ngModel)]="name">
     <input placeholder="Position" [(ngModel)]="position">
     <input placeholder="Team" [(ngModel)]="team">
     <input placeholder="Bye" [(ngModel)]="bye">
-    <button (click)="clicked()">Submit</button>
+    <button (click)="submitPlayer()">Submit Player</button>
+  </div>
+  <div flex>
+    <select placeholder="User" [(ngModel)]="user">
+      <option *ngFor="let user of loginService.allUsers | async" [ngValue]="user">{{ user.username }}</option>
+    </select>
+    <select placeholder="Player" [(ngModel)]="player">
+      <option *ngFor="let player of players | async" [ngValue]="player">{{ player.name }}</option>
+    </select>
+    <input placeholder="Amount" [(ngModel)]="amount">
+    <input placeholder="Years" [(ngModel)]="years">
+    <input placeholder="Value" [(ngModel)]="value">
+    <select placeholder="Time" [(ngModel)]="time">
+      <option value="1471348900427">Pre-Draft</option>
+      <option value="{{timeNow}}">Now</option>
+    </select>
+    <button (click)="submitBid()">Submit Bid</button>
   </div>
 </div>

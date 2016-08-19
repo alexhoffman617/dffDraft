@@ -10,6 +10,9 @@ export class TimeService {
     formatTimeNumber(input){};
     constructor(af: AngularFire) {
         this.getTimeLeft = function (inputTimeStamp, inputCurrentDateTime) {
+            if(!inputTimeStamp){
+                return '--';
+            }
             var inputDateTime = new Date(inputTimeStamp);
             var endtime = inputDateTime.setDate(inputDateTime.getDate() + 1)
             var t = endtime - inputCurrentDateTime;
@@ -20,7 +23,7 @@ export class TimeService {
                 return 'Bid Won';
             }
             return hours + ':' + minutes + ':' + seconds;
-            ;
+            
         }
 
         this.formatTimeNumber = function (input) {

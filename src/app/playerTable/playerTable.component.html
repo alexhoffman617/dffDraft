@@ -18,6 +18,14 @@
       <option value="No Bids">No Bids</option>
     </select>
   </div>
+  <div> 
+      Bid State:
+    <select [(ngModel)]="bidStateFilter" >
+      <option value="ALL">ALL</option>
+      <option value="Bid Won">WON</option>
+      <option value="IN PROGRESS">IN PROGRESS</option>
+    </select>
+  </div>
   <div>
     <table>
       <thead>
@@ -34,8 +42,11 @@
         </tr>
       </thead>
       <tbody *ngFor="let player of players | async">
-        <tr *ngIf="(player.position === positionFilter || positionFilter === 'ALL')
-        && (getBid(player.$key).username === usernameFilter || usernameFilter === 'ALL')">
+        <tr [ngClass]="timeService.getTimeLeft(getBid(player.$key).time, timeService.datetime) == 'Bid Won' ? 'bid-won' : ''" 
+        *ngIf="(player.position === positionFilter || positionFilter === 'ALL')
+        && (getBid(player.$key).username === usernameFilter || usernameFilter === 'ALL')
+        && ((timeService.getTimeLeft(getBid(player.$key).time, timeService.datetime) != bidStateFilter && bidStateFilter == 'IN PROGRESS')
+          || timeService.getTimeLeft(getBid(player.$key).time, timeService.datetime) === bidStateFilter || bidStateFilter === 'ALL')">
           <td [routerLink]="[ '/player/' + player.$key ]"> {{ player.name }} </td>
           <td> {{ player.position }}</td>
           <td> {{ player.team }}</td>
