@@ -10,8 +10,12 @@ export class LoginService  {
   logout(){};
   calculateSalaryInfo(){};
   allUsers;
+  allPlayers;
   constructor(af: AngularFire) {  
   this.allUsers = af.database.list('user');
+  this.allPlayers = af.database.list('player').map(items => {
+    return items
+  });
 
     /// For Dev only, remove later
      this.user = {};

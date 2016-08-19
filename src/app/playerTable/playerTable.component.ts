@@ -25,13 +25,7 @@ export class PlayerTableComponent  {
   getBid(playerId){};
 
   constructor(af: AngularFire, loginService: LoginService, timeService: TimeService) {
-    this.loginService = loginService;
-    this.timeService = timeService;
-    this.positionFilter = 'ALL';
-    this.usernameFilter = 'ALL';
-    this.bidStateFilter = 'ALL';
-    this.players = af.database.list('player');
-    af.database.list('bids', {
+      af.database.list('bids', {
       query: {
         orderByChild: 'isWinningBid',
         equalTo: 1
@@ -39,6 +33,13 @@ export class PlayerTableComponent  {
     }).subscribe(snapshots => {
       this.bids = snapshots;
     });
+    this.loginService = loginService;
+    this.timeService = timeService;
+    this.positionFilter = 'ALL';
+    this.usernameFilter = 'ALL';
+    this.bidStateFilter = 'ALL';
+    this.players = af.database.list('player');
+
 
     this.getBid = function(playerId){
         var bid = this.bids.filter(function(snapshot){ return snapshot.player === playerId});
