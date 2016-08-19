@@ -5,8 +5,7 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 export class LoginService  {
 
  user;
- userhash: ""
-  login(username, password){};
+  login(email, password){};
   logout(){};
   calculateSalaryInfo(){};
   allUsers;
@@ -18,10 +17,11 @@ export class LoginService  {
   });
 
     /// For Dev only, remove later
-     this.user = {};
-      this.user.username = "Alex";
-      this.user.password = "password";
-      this.user.userId = "has1";
+    // this.user = {};
+    //  this.user.username = "Alex";
+    //  this.user.password = "password";
+    //  this.user.userId = "AlexHoffman";
+    //  this.user.email = "alexhoffman617@gmail.com"
     
     this.calculateSalaryInfo= function(){
        this.bids = af.database.list('bids', {
@@ -44,12 +44,12 @@ export class LoginService  {
 
     }
 
-    this.login = function(username, password){
+    this.login = function(email, password){
       var afUsernames = af.database.list('user', {
         preserveSnapshot: true,
         query: {
-          orderByChild: 'username',
-          equalTo: username
+          orderByChild: 'email',
+          equalTo: email
         }
       })
 
@@ -70,7 +70,8 @@ export class LoginService  {
       this.user = {
         username: "",
         password: "",
-        userId: ""
+        userId: "",
+        email: ""
       }
     }
   }
