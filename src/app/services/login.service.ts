@@ -5,6 +5,7 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 export class LoginService  {
 
  user;
+ userId;
   login(email, password){};
   logout(){};
   calculateSalaryInfo(){};

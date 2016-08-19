@@ -18,13 +18,12 @@ export class PlayerComponent {
     name: ""
     position: ""
     team: ""
-    user: ""
-    username: ""
     amount: number
     years: number
     value: number
     time;
     salaryService;
+    loginService;
     timeService;
     currentBid;
     currMaxBid;
@@ -38,7 +37,7 @@ export class PlayerComponent {
             })
         })
 
-        this.salaryService.calculateSalaryInfo(this.user);
+        this.salaryService.calculateSalaryInfo(this.loginService.userId);
         if (this.currMaxBid.length > 0 && this.timeService.getTimeLeft(this.currMaxBid[0].time, this.timeService.datetime) == 'Bid Won') {
             alert("You're too slow bitch, bidding on this player has EXPIRED.");
         } else if (this.amount <= 0 || this.years <= 0 || this.years > 4) {
@@ -51,7 +50,7 @@ export class PlayerComponent {
             if (this.currMaxBid.length > 0) {
                 this.bids.update(this.currMaxBid[0].$key, { isWinningBid: 0 })
             }
-            this.bids.push({ user: this.user, username: this.username, player: this.playerHash, amount: this.amount, years: this.years, value: this.value, time: firebase.database.ServerValue.TIMESTAMP, isWinningBid: 1 });
+            this.bids.push({ user: this.loginService.userId, username: this.loginService.user.username, player: this.playerHash, amount: this.amount, years: this.years, value: this.value, time: firebase.database.ServerValue.TIMESTAMP, isWinningBid: 1 });
         }
     }
 
@@ -64,6 +63,7 @@ export class PlayerComponent {
 
     constructor(af: AngularFire, route: ActivatedRoute, loginService: LoginService, salaryService: SalaryService, timeService: TimeService) {
         this.timeService = timeService;
+        this.loginService = loginService;
         this.playerHash = route.snapshot.params['playerHash'];
         this.bids = af.database.list('bids', {
             query: {
@@ -78,8 +78,6 @@ export class PlayerComponent {
             })
         })
 
-        this.user = loginService.user.userId
-        this.username = loginService.user.username
         this.salaryService = salaryService;
 
 
