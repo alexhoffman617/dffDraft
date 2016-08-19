@@ -21,7 +21,7 @@ export class UserComponent {
     };
     constructor(af: AngularFire, loginService: LoginService, timeService: TimeService) {
         this.loginService = loginService;
-        if (this.loginService.user && this.loginService.user.userId) {
+        if (this.loginService.user && this.loginService.userId) {
             var allPlayers = af.database.list('player');
             allPlayers.subscribe(snapshots => {
                 this.players = snapshots;
@@ -30,8 +30,8 @@ export class UserComponent {
 
             this.userBids = af.database.list('bids', {
                 query: {
-                    orderByChild: 'username',
-                    equalTo: this.loginService.user.userHash
+                    orderByChild: 'user',
+                    equalTo: this.loginService.userId
                 }
             }).map(bids => {
                 return bids.map(bid => {

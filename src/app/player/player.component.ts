@@ -18,6 +18,7 @@ export class PlayerComponent {
     name: ""
     position: ""
     team: ""
+    bye: ""
     amount: number
     years: number
     value: number
@@ -89,6 +90,8 @@ export class PlayerComponent {
             this.name = snapshot.val().name
             this.position = snapshot.val().position
             this.team = snapshot.val().team
+            this.bye = snapshot.val().bye
+
         });
 
     }
