@@ -43,8 +43,8 @@ export class PlayerComponent {
             alert("You're too slow bitch, bidding on this player has EXPIRED.");
         } else if (this.amount <= 0 || this.years <= 0 || this.years > 4) {
             alert("Fuck you, put in a valid value for amount or years");
-            // } else if(this.amount > this.salaryService.maxBid) {
-            //         alert("Bitch, you're spending too much or you already have a full, shitty-ass team");
+        } else if (this.amount > this.salaryService.maxBid) {
+            alert("Bitch, you're spending too much or you already have a full, shitty-ass team");
         } else if (this.currMaxBid.length > 0 && this.currMaxBid[0].value >= this.value) {
             alert("Stop being so fucking cheap, increase your bid value.");
         } else {
