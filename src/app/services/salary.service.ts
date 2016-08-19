@@ -5,6 +5,7 @@ import { LoginService } from "../services/login.service"
 export class SalaryService implements OnInit {
 
   calculateSalaryInfo(user) { };
+  reInit(loginService) {};
   totalSalary;
   maxBid;
   loginService;
@@ -14,20 +15,7 @@ export class SalaryService implements OnInit {
   constructor(af: AngularFire, loginService: LoginService) {
     this.loginService = loginService;
     this.af = af;
-  }
-   ngOnInit(){
-    this.bids = this.af.database.list('bids', {
-      query: {
-        orderByChild: 'user',
-        equalTo: this.loginService.user.$key
-      }
-    });
-    this.bids.subscribe(snapshots => {
-      this.winningBids = snapshots.filter(function (snapshot) {
-        return snapshot.isWinningBid == 1
-      });
 
-    })
     this.calculateSalaryInfo = function () {
       var currentSalary = 0;
       if(this.winningBids)
@@ -38,9 +26,40 @@ export class SalaryService implements OnInit {
       if (this.winningBids.length > 15) {
         this.maxBid = 0;
       } else {
-        this.maxBid = (240 - currentSalary) - (16 - (this.winningBids.length + 1));
+        this.maxBid = (this.loginService.user.maxSalary - currentSalary) - (16 - (this.winningBids.length + 1));
       }
     }
+
+    this.reInit = function(loginService){
+      this.loginService = loginService;
+      this.bids = this.af.database.list('bids', {
+        query: {
+          orderByChild: 'user',
+          equalTo: this.loginService.userId
+        }
+      });
+      this.bids.subscribe(snapshots => {
+        this.winningBids = snapshots.filter(function (snapshot) {
+          return snapshot.isWinningBid == 1
+        });
+
+      })
+    }
+  }
+   ngOnInit(){
+      this.bids = this.af.database.list('bids', {
+        query: {
+          orderByChild: 'user',
+          equalTo: this.loginService.userId
+        }
+      });
+      this.bids.subscribe(snapshots => {
+        this.winningBids = snapshots.filter(function (snapshot) {
+          return snapshot.isWinningBid == 1
+        });
+
+      })
+
    }
 
 }

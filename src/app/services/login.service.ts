@@ -23,6 +23,7 @@ export class LoginService  {
     //  this.user.password = "password";
     //  this.user.userId = "AlexHoffman";
     //  this.user.email = "alexhoffman617@gmail.com"
+    //  this.user.maxSalary = 240
     
     this.calculateSalaryInfo= function(){
        this.bids = af.database.list('bids', {
@@ -72,7 +73,8 @@ export class LoginService  {
         username: "",
         password: "",
         userId: "",
-        email: ""
+        email: "",
+        maxSalary: ""
       }
     }
   }

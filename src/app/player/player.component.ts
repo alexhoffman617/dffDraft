@@ -38,7 +38,7 @@ export class PlayerComponent {
             })
         })
 
-        this.salaryService.calculateSalaryInfo(this.loginService.userId);
+        this.salaryService.calculateSalaryInfo();
         if (this.currMaxBid.length > 0 && this.timeService.getTimeLeft(this.currMaxBid[0].time, this.timeService.datetime) == 'Bid Won') {
             alert("You're too slow bitch, bidding on this player has EXPIRED.");
         } else if (this.amount <= 0 || this.years <= 0 || this.years > 4) {
@@ -65,6 +65,8 @@ export class PlayerComponent {
     constructor(af: AngularFire, route: ActivatedRoute, loginService: LoginService, salaryService: SalaryService, timeService: TimeService) {
         this.timeService = timeService;
         this.loginService = loginService;
+        this.salaryService = salaryService;
+        this.salaryService.reInit(this.loginService);
         this.playerHash = route.snapshot.params['playerHash'];
         this.bids = af.database.list('bids', {
             query: {
@@ -79,7 +81,6 @@ export class PlayerComponent {
             })
         })
 
-        this.salaryService = salaryService;
 
 
         console.log(this.playerHash)
