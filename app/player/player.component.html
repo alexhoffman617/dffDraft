@@ -1,7 +1,7 @@
 <div layout="row">
   <div flex="30">
     <center>
-      <h1>{{name}} | {{position}} | {{team}}</h1>
+      <h1>{{name}} | {{position}} | {{team}} | Week {{bye}}</h1>
       <h2 *ngIf="currMaxBid != null && currMaxBid[0]">{{ timeService.getTimeLeft(currMaxBid[0].time, timeService.datetime) }}</h2>
     </center>
     <div ng-controller="calculateValue">
