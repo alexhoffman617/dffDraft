@@ -1,20 +1,25 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit} from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { LoginService } from "../services/login.service"
 @Injectable()
-export class SalaryService {
+export class SalaryService implements OnInit {
 
   calculateSalaryInfo(user) { };
   totalSalary;
   maxBid;
   loginService;
   bids;
-  winningBids
+  winningBids;
+  af;
   constructor(af: AngularFire, loginService: LoginService) {
-    this.bids = af.database.list('bids', {
+    this.loginService = loginService;
+    this.af = af;
+  }
+   ngOnInit(){
+    this.bids = this.af.database.list('bids', {
       query: {
         orderByChild: 'user',
-        equalTo: loginService.user.$key
+        equalTo: this.loginService.user.$key
       }
     });
     this.bids.subscribe(snapshots => {
@@ -36,6 +41,6 @@ export class SalaryService {
         this.maxBid = (240 - currentSalary) - (16 - (this.winningBids.length + 1));
       }
     }
-  }
+   }
 
 }
