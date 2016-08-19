@@ -20,7 +20,6 @@ export class CreatePlayerComponent  {
   player;
   amount;
   years;
-  value;
   time;
   username;
   loginService;
@@ -42,13 +41,14 @@ export class CreatePlayerComponent  {
  //       that.bids.update(snapshot.$key, { isWinningBid: 0 })
  //     })
  //   });
-    this.bids.push({amount: parseInt(this.amount), isWinningBid: 1, player: this.player.$key, value: parseInt(this.value),
-                    years: parseInt(this.years), time: parseInt(this.time), user: this.user.$key, username: this.user.username });
+ 
+    this.bids.push({amount: parseInt(this.amount),  value: this.years * this.amount + (4 - this.years) * (this.amount / 2), years: parseInt(this.years),
+                   isWinningBid: 1, player: this.player.$key,
+                    time: parseInt(this.time), user: this.user.$key, username: this.user.username });
     this.user = "";
     this.player = "";
     this.amount = "";
     this.years = "";
-    this.value = "";
     this.time = "";
   }
   constructor(af: AngularFire, loginService: LoginService) {
