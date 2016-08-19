@@ -1,24 +1,30 @@
 <div layout="column">
   <div>
-    <span>Salary: {{loginService.totalSalary}}</span>
-    <span>Max Bid: {{loginService.maxBid}}</span>
   </div>
   <div flex>
   <table>
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Position</th>
-        <th>Amount</th>
-        <th>Years</th>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Team</th>
+          <th>Time Left</th>
+          <th>Bid Time</th>
+          <th>Amount</th>
+          <th>Years</th>
+          <th>Value</th>
       </tr>
     </thead>
     <tbody *ngFor="let bid of userBids | async">
-        <tr *ngIf="bid.isWinningBid">
-            <td> {{ getPlayer(bid.player).name }} </td>
-            <td> {{ getPlayer(bid.player).position }}</td>
-            <td> {{bid.amount}} </td>
-            <td> {{bid.years}} </td>
+        <tr *ngIf="bid.isWinningBid" [ngClass]="timeService.getTimeLeft(bid.time, timeService.datetime) == 'Bid Won' ? 'bid-won' : ''" >
+          <td [routerLink]="[ '/player/' + (bid.playerInfo | async)?.$key ]"> {{ (bid.playerInfo | async)?.name }} </td>
+          <td> {{ (bid.playerInfo | async)?.position }}</td>
+          <td> {{ (bid.playerInfo | async)?.team }}</td>
+          <td> {{ timeService.getTimeLeft(bid.time, timeService.datetime) }}</td>
+          <td> {{ timeService.getLocalTimeFromTimeStamp(bid.time) }}
+          <td> {{ bid.amount }} </td>
+          <td> {{ bid.years }} </td>
+          <td> {{ bid.value }} </td>
         </tr>
     </tbody>
   </table>
