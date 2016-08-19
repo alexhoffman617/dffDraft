@@ -27,30 +27,32 @@ export class PlayerComponent {
     salaryService;
     timeService;
     currentBid;
+    currMaxBid;
     clicked() {
         // this.value = parseInt(this.years, 10) * parseInt(this.amount, 10) + (4 - parseInt(this.years, 10)) * (parseInt(this.amount, 10) / 2)
         this.value = this.years * this.amount + (4 - this.years) * (this.amount / 2)
 
-        var currMaxBid;
         this.bids.subscribe(snapshots => {
-            currMaxBid = snapshots.filter(function (snapshot) {
+            this.currMaxBid = snapshots.filter(function (snapshot) {
                 return snapshot.isWinningBid == 1
             })
         })
 
         this.salaryService.calculateSalaryInfo(this.user);
-        if (currMaxBid.length > 0 && this.timeService.getTimeLeft(currMaxBid[0].time, this.timeService.datetime) == 'Bid Won') {
+        if (this.currMaxBid.length > 0 && this.timeService.getTimeLeft(this.currMaxBid[0].time, this.timeService.datetime) == 'Bid Won') {
             alert("You're too slow bitch, bidding on this player has EXPIRED.");
         } else if (this.amount <= 0 || this.years <= 0 || this.years > 4) {
-                alert("Fuck you, put in a valid value for amount or years");
-        } else if(this.amount > this.salaryService.maxBid) {
-                alert("Bitch, you're spending too much or you already have a full, shitty-ass team");
-        } else if (currMaxBid.length > 0 && currMaxBid[0].value >= this.value) {
-                alert("Stop being so fucking cheap, increase your bid value.");
+            alert("Fuck you, put in a valid value for amount or years");
+            // } else if(this.amount > this.salaryService.maxBid) {
+            //         alert("Bitch, you're spending too much or you already have a full, shitty-ass team");
+        } else if (this.currMaxBid.length > 0 && this.currMaxBid[0].value >= this.value) {
+            alert("Stop being so fucking cheap, increase your bid value.");
         } else {
-            this.bids.update(currMaxBid[0].$key, { isWinningBid: 0 })
-            this.bids.push({ user: this.user, username: this.username, player: this.playerHash, amount: this.amount, years: this.years, value: this.value, time: firebase.database.ServerValue.TIMESTAMP, isWinningBid: 1 });                         
-        }       
+            if (this.currMaxBid.length > 0) {
+                this.bids.update(this.currMaxBid[0].$key, { isWinningBid: 0 })
+            }
+            this.bids.push({ user: this.user, username: this.username, player: this.playerHash, amount: this.amount, years: this.years, value: this.value, time: firebase.database.ServerValue.TIMESTAMP, isWinningBid: 1 });
+        }
     }
 
     calculateValue($scope) {
@@ -69,6 +71,12 @@ export class PlayerComponent {
                 equalTo: this.playerHash
             }
         });
+
+        this.bids.subscribe(snapshots => {
+            this.currMaxBid = snapshots.filter(function (snapshot) {
+                return snapshot.isWinningBid == 1
+            })
+        })
 
         this.user = loginService.user.userId
         this.username = loginService.user.username
