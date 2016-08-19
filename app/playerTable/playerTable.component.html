@@ -10,12 +10,20 @@
       <option value="D/ST">D/ST</option>
     </select>
   </div>
-    <div> 
+    <div>    
       Owner:
     <select [(ngModel)]="usernameFilter" >
       <option value="ALL">ALL</option>
       <option *ngFor="let user of loginService.allUsers | async" value="{{user.username}}">{{user.username}}</option>
       <option value="No Bids">No Bids</option>
+    </select>
+  </div>
+  <div> 
+      Bid State:
+    <select [(ngModel)]="bidStateFilter" >
+      <option value="ALL">ALL</option>
+      <option value="Bid Won">WON</option>
+      <option value="IN PROGRESS">IN PROGRESS</option>
     </select>
   </div>
   <div>
@@ -31,17 +39,20 @@
           <th>Amount</th>
           <th>Years</th>
           <th>Value</th>
-        </tr>
+        </tr> 
       </thead>
       <tbody *ngFor="let player of players | async">
-        <tr *ngIf="(player.position === positionFilter || positionFilter === 'ALL')
-        && (getBid(player.$key).username === usernameFilter || usernameFilter === 'ALL')">
+        <tr [ngClass]="timeService.getTimeLeft(getBid(player.$key).time, timeService.datetime) == 'Bid Won' ? 'bid-won' : ''" 
+        *ngIf="(player.position === positionFilter || positionFilter === 'ALL')
+        && (getBid(player.$key).username === usernameFilter || usernameFilter === 'ALL')
+        && ((timeService.getTimeLeft(getBid(player.$key).time, timeService.datetime) != bidStateFilter && bidStateFilter == 'IN PROGRESS')
+          || timeService.getTimeLeft(getBid(player.$key).time, timeService.datetime) === bidStateFilter || bidStateFilter === 'ALL')">
           <td [routerLink]="[ '/player/' + player.$key ]"> {{ player.name }} </td>
           <td> {{ player.position }}</td>
           <td> {{ player.team }}</td>
           <td> {{ getBid(player.$key).username }} </td>
           <td> {{ timeService.getTimeLeft(getBid(player.$key).time, timeService.datetime) }}</td>
-          <td> {{ timeService.getTimeFromTimeStamp(getBid(player.$key).time) }}
+          <td> {{ timeService.getLocalTimeFromTimeStamp(getBid(player.$key).time) }}
           <td> {{ getBid(player.$key).amount }} </td>
           <td> {{ getBid(player.$key).years }} </td>
           <td> {{ getBid(player.$key).value }} </td>

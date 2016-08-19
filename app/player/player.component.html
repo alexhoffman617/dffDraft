@@ -2,6 +2,7 @@
   <div flex="30">
     <center>
       <h1>{{name}} | {{position}} | {{team}}</h1>
+      <!--<h2>{{ timeService.getTimeLeft(currMaxBid.time) }}</h2>-->
     </center>
     <div ng-controller="calculateValue">
       <input placeholder="Years" [(ngModel)]="years" ng-change="calculateValue()">
@@ -35,7 +36,7 @@
             {{ bid.username }}
           </td>
           <td class="text-left">
-            {{ getLocalTimeFromTimestamp(bid.time) }}
+            {{ timeService.getLocalTimeFromTimeStamp(bid.time) }}
           </td>
           <td class="text-left">
             {{ bid.years }}
