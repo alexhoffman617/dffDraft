@@ -39,7 +39,7 @@
           <th>Amount</th>
           <th>Years</th>
           <th>Value</th>
-        </tr>
+        </tr> 
       </thead>
       <tbody *ngFor="let player of players | async">
         <tr [ngClass]="timeService.getTimeLeft(getBid(player.$key).time, timeService.datetime) == 'Bid Won' ? 'bid-won' : ''" 
