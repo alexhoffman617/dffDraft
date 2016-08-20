@@ -1,4 +1,7 @@
 <div layout="row">
+  <div>
+    <input placeholder="Name Search" [(ngModel)]="nameSearchFilter">
+  </div>
   <div> 
     Position:
     <select [(ngModel)]="positionFilter" >
@@ -48,7 +51,8 @@
         && (getBid(player.$key).username === usernameFilter || usernameFilter === 'ALL')
         && ((timeService.getTimeLeft(getBid(player.$key).time, timeService.datetime) != 'Bid Won' && timeService.getTimeLeft(getBid(player.$key).time, timeService.datetime) != '--' && bidStateFilter == 'IN PROGRESS')
           || timeService.getTimeLeft(getBid(player.$key).time, timeService.datetime) === bidStateFilter 
-          || bidStateFilter === 'ALL')">
+          || bidStateFilter === 'ALL')
+        && player.name.includes(nameSearchFilter)">
           <td [routerLink]="[ '/player/' + player.$key ]"> {{ player.name }} </td>
           <td> {{ player.position }}</td>
           <td> {{ player.team }}</td>

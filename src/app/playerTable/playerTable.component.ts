@@ -20,6 +20,7 @@ export class PlayerTableComponent  {
   positionFilter;
   usernameFilter;
   bidStateFilter;
+  nameSearchFilter;
   loginService;
   timeService;
   getBid(playerId){};
@@ -38,6 +39,7 @@ export class PlayerTableComponent  {
     this.positionFilter = 'ALL';
     this.usernameFilter = 'ALL';
     this.bidStateFilter = 'ALL';
+    this.nameSearchFilter = "";
     this.players = af.database.list('player');
 
 
