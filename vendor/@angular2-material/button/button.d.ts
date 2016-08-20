@@ -1,4 +1,4 @@
-import { ElementRef, Renderer, Type } from '@angular/core';
+import { ElementRef, Renderer } from '@angular/core';
 export declare class MdButton {
     private _elementRef;
     private _renderer;
@@ -31,6 +31,6 @@ export declare class MdAnchor extends MdButton {
     _haltDisabledEvents(event: Event): void;
 }
 /** @deprecated */
-export declare const MD_BUTTON_DIRECTIVES: Type[];
+export declare const MD_BUTTON_DIRECTIVES: any[];
 export declare class MdButtonModule {
 }

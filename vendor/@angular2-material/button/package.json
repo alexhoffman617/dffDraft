@@ -10,18 +10,18 @@
         "spec": ">=2.0.0-alpha.7-2 <3.0.0",
         "type": "range"
       },
-      "/Users/abaradwaj/Documents/dffDraft"
+      "/Users/alexhoffman/Desktop/tempJS/dffDraft"
     ]
   ],
   "_from": "@angular2-material/button@>=2.0.0-alpha.7-2 <3.0.0",
-  "_id": "@angular2-material/button@2.0.0-alpha.7-2",
+  "_id": "@angular2-material/button@2.0.0-alpha.7-4",
   "_inCache": true,
   "_installable": true,
   "_location": "/@angular2-material/button",
   "_nodeVersion": "5.7.0",
   "_npmOperationalInternal": {
     "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/button-2.0.0-alpha.7-2.tgz_1470853888685_0.6213845869060606"
+    "tmp": "tmp/button-2.0.0-alpha.7-4.tgz_1471476103792_0.5179651374928653"
   },
   "_npmUser": {
     "name": "angular2-material",
@@ -41,11 +41,11 @@
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/@angular2-material/button/-/button-2.0.0-alpha.7-2.tgz",
-  "_shasum": "f1ff44156a61da13c0fbe450b293bba769994cae",
+  "_resolved": "https://registry.npmjs.org/@angular2-material/button/-/button-2.0.0-alpha.7-4.tgz",
+  "_shasum": "46b8b1dfc16f5e5cfd20fa64c44abc6a7bf984a7",
   "_shrinkwrap": null,
   "_spec": "@angular2-material/button@^2.0.0-alpha.7-2",
-  "_where": "/Users/abaradwaj/Documents/dffDraft",
+  "_where": "/Users/alexhoffman/Desktop/tempJS/dffDraft",
   "bugs": {
     "url": "https://github.com/angular/material2/issues"
   },
@@ -54,8 +54,8 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "f1ff44156a61da13c0fbe450b293bba769994cae",
-    "tarball": "https://registry.npmjs.org/@angular2-material/button/-/button-2.0.0-alpha.7-2.tgz"
+    "shasum": "46b8b1dfc16f5e5cfd20fa64c44abc6a7bf984a7",
+    "tarball": "https://registry.npmjs.org/@angular2-material/button/-/button-2.0.0-alpha.7-4.tgz"
   },
   "homepage": "https://github.com/angular/material2#readme",
   "keywords": [
@@ -78,7 +78,7 @@
   "name": "@angular2-material/button",
   "optionalDependencies": {},
   "peerDependencies": {
-    "@angular2-material/core": "2.0.0-alpha.7-2"
+    "@angular2-material/core": "2.0.0-alpha.7-4"
   },
   "readme": "ERROR: No README data found!",
   "repository": {
@@ -87,5 +87,5 @@
   },
   "scripts": {},
   "typings": "./button.d.ts",
-  "version": "2.0.0-alpha.7-2"
+  "version": "2.0.0-alpha.7-4"
 }

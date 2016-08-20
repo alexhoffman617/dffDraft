@@ -4,7 +4,7 @@ export declare class MdRipple implements OnInit, OnDestroy, OnChanges {
      * The element that triggers the ripple when click events are received. Defaults to the
      * directive's host element.
      */
-    trigger: HTMLElement;
+    trigger: HTMLElement | HTMLElement;
     /**
      * Whether the ripple always originates from the center of the host element's bounds, rather
      * than originating from the location of the click event.

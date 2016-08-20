@@ -10,18 +10,18 @@
         "spec": ">=2.0.0-alpha.7-2 <3.0.0",
         "type": "range"
       },
-      "/Users/abaradwaj/Documents/dffDraft"
+      "/Users/alexhoffman/Desktop/tempJS/dffDraft"
     ]
   ],
   "_from": "@angular2-material/card@>=2.0.0-alpha.7-2 <3.0.0",
-  "_id": "@angular2-material/card@2.0.0-alpha.7-2",
+  "_id": "@angular2-material/card@2.0.0-alpha.7-4",
   "_inCache": true,
   "_installable": true,
   "_location": "/@angular2-material/card",
   "_nodeVersion": "5.7.0",
   "_npmOperationalInternal": {
-    "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/card-2.0.0-alpha.7-2.tgz_1470853896250_0.19142646412365139"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/card-2.0.0-alpha.7-4.tgz_1471476109940_0.7283046441152692"
   },
   "_npmUser": {
     "name": "angular2-material",
@@ -41,11 +41,11 @@
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/@angular2-material/card/-/card-2.0.0-alpha.7-2.tgz",
-  "_shasum": "6c53c7f0fa8e388fd42192bb83b2b2632fabf4e6",
+  "_resolved": "https://registry.npmjs.org/@angular2-material/card/-/card-2.0.0-alpha.7-4.tgz",
+  "_shasum": "f7c0ee396fe018628f22e79b702f31aeefcbf31b",
   "_shrinkwrap": null,
   "_spec": "@angular2-material/card@^2.0.0-alpha.7-2",
-  "_where": "/Users/abaradwaj/Documents/dffDraft",
+  "_where": "/Users/alexhoffman/Desktop/tempJS/dffDraft",
   "bugs": {
     "url": "https://github.com/angular/material2/issues"
   },
@@ -54,8 +54,8 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "6c53c7f0fa8e388fd42192bb83b2b2632fabf4e6",
-    "tarball": "https://registry.npmjs.org/@angular2-material/card/-/card-2.0.0-alpha.7-2.tgz"
+    "shasum": "f7c0ee396fe018628f22e79b702f31aeefcbf31b",
+    "tarball": "https://registry.npmjs.org/@angular2-material/card/-/card-2.0.0-alpha.7-4.tgz"
   },
   "homepage": "https://github.com/angular/material2#readme",
   "keywords": [
@@ -76,7 +76,7 @@
   "name": "@angular2-material/card",
   "optionalDependencies": {},
   "peerDependencies": {
-    "@angular2-material/core": "2.0.0-alpha.7-2"
+    "@angular2-material/core": "2.0.0-alpha.7-4"
   },
   "readme": "ERROR: No README data found!",
   "repository": {
@@ -85,5 +85,5 @@
   },
   "scripts": {},
   "typings": "./card.d.ts",
-  "version": "2.0.0-alpha.7-2"
+  "version": "2.0.0-alpha.7-4"
 }

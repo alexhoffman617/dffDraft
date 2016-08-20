@@ -1,4 +1,7 @@
 <div layout="row">
+  <div>
+    <input placeholder="Name Search" [(ngModel)]="nameSearchFilter">
+  </div>
   <div> 
     Position:
     <select [(ngModel)]="positionFilter" >
@@ -24,6 +27,7 @@
       <option value="ALL">ALL</option>
       <option value="Bid Won">WON</option>
       <option value="IN PROGRESS">IN PROGRESS</option>
+      <option value="--">NO BIDS</option>
     </select>
   </div>
   <div>
@@ -45,8 +49,10 @@
         <tr [ngClass]="timeService.getTimeLeft(getBid(player.$key).time, timeService.datetime) == 'Bid Won' ? 'bid-won' : ''" 
         *ngIf="(player.position === positionFilter || positionFilter === 'ALL')
         && (getBid(player.$key).username === usernameFilter || usernameFilter === 'ALL')
-        && ((timeService.getTimeLeft(getBid(player.$key).time, timeService.datetime) != bidStateFilter && bidStateFilter == 'IN PROGRESS')
-          || timeService.getTimeLeft(getBid(player.$key).time, timeService.datetime) === bidStateFilter || bidStateFilter === 'ALL')">
+        && ((timeService.getTimeLeft(getBid(player.$key).time, timeService.datetime) != 'Bid Won' && timeService.getTimeLeft(getBid(player.$key).time, timeService.datetime) != '--' && bidStateFilter == 'IN PROGRESS')
+          || timeService.getTimeLeft(getBid(player.$key).time, timeService.datetime) === bidStateFilter 
+          || bidStateFilter === 'ALL')
+        && player.name.includes(nameSearchFilter)">
           <td [routerLink]="[ '/player/' + player.$key ]"> {{ player.name }} </td>
           <td> {{ player.position }}</td>
           <td> {{ player.team }}</td>

@@ -10,18 +10,18 @@
         "spec": ">=2.0.0-alpha.7-2 <3.0.0",
         "type": "range"
       },
-      "/Users/abaradwaj/Documents/dffDraft"
+      "/Users/alexhoffman/Desktop/tempJS/dffDraft"
     ]
   ],
   "_from": "@angular2-material/input@>=2.0.0-alpha.7-2 <3.0.0",
-  "_id": "@angular2-material/input@2.0.0-alpha.7-2",
+  "_id": "@angular2-material/input@2.0.0-alpha.7-4",
   "_inCache": true,
   "_installable": true,
   "_location": "/@angular2-material/input",
   "_nodeVersion": "5.7.0",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/input-2.0.0-alpha.7-2.tgz_1470853925337_0.024490476585924625"
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/input-2.0.0-alpha.7-4.tgz_1471476130207_0.30293487501330674"
   },
   "_npmUser": {
     "name": "angular2-material",
@@ -41,11 +41,11 @@
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/@angular2-material/input/-/input-2.0.0-alpha.7-2.tgz",
-  "_shasum": "074efe771d91892bd905bae67752f467d2456de4",
+  "_resolved": "https://registry.npmjs.org/@angular2-material/input/-/input-2.0.0-alpha.7-4.tgz",
+  "_shasum": "b46558f384e182b5c5aea32cb30b78cb94db27c2",
   "_shrinkwrap": null,
   "_spec": "@angular2-material/input@^2.0.0-alpha.7-2",
-  "_where": "/Users/abaradwaj/Documents/dffDraft",
+  "_where": "/Users/alexhoffman/Desktop/tempJS/dffDraft",
   "bugs": {
     "url": "https://github.com/angular/material2/issues"
   },
@@ -54,8 +54,8 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "074efe771d91892bd905bae67752f467d2456de4",
-    "tarball": "https://registry.npmjs.org/@angular2-material/input/-/input-2.0.0-alpha.7-2.tgz"
+    "shasum": "b46558f384e182b5c5aea32cb30b78cb94db27c2",
+    "tarball": "https://registry.npmjs.org/@angular2-material/input/-/input-2.0.0-alpha.7-4.tgz"
   },
   "homepage": "https://github.com/angular/material2#readme",
   "keywords": [
@@ -78,7 +78,7 @@
   "name": "@angular2-material/input",
   "optionalDependencies": {},
   "peerDependencies": {
-    "@angular2-material/core": "2.0.0-alpha.7-2",
+    "@angular2-material/core": "2.0.0-alpha.7-4",
     "@angular/forms": "^0.3.0"
   },
   "readme": "ERROR: No README data found!",
@@ -88,5 +88,5 @@
   },
   "scripts": {},
   "typings": "./input.d.ts",
-  "version": "2.0.0-alpha.7-2"
+  "version": "2.0.0-alpha.7-4"
 }
